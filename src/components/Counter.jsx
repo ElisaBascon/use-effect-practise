@@ -17,7 +17,13 @@ export default function Counter() {
   // Second and Fourth iteration
   useEffect (() => {
     setCount (Math.floor(Math.random() * 10))
-    })
+
+    return() => {
+      setCount(0);
+      setDynamicClass('text')
+      console.log('All clean here. Count:', count, 'Class:', dynamicClass);
+    }
+    }, [ ])
 
   // Third iteration
 
@@ -32,6 +38,7 @@ export default function Counter() {
       setDynamicClass('green')
     } 
   }, [count]);
+
 
   return (
     <div>
